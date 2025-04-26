@@ -62,6 +62,8 @@ class BookManagementPluginInit extends Singleton
 
             $this->application->addServiceProvider(MigrationServiceProvider::class);
 
+            $this->application->addServiceProvider(PostTypeServiceProvider::class);
+
             /**
              * Activation hooks
              */
