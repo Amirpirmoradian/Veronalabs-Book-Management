@@ -11,6 +11,8 @@
  * Version:         1.0
  */
 
+use Piramir\BookManagement\ServiceProviders\MigrationServiceProvider;
+use Piramir\BookManagement\ServiceProviders\PostTypeServiceProvider;
 use Rabbit\Application;
 use Rabbit\Redirects\RedirectServiceProvider;
 use Rabbit\Database\DatabaseServiceProvider;
@@ -58,19 +60,22 @@ class BookManagementPluginInit extends Singleton
             $this->application->addServiceProvider(LoggerServiceProvider::class);
             // Load your own service providers here...
 
+            $this->application->addServiceProvider(MigrationServiceProvider::class);
 
             /**
              * Activation hooks
              */
             $this->application->onActivation(function () {
-                // Create tables or something else
+                $repository = $this->application->get('book.repository');
+                $repository->migrate();
             });
 
             /**
              * Deactivation hooks
              */
             $this->application->onDeactivation(function () {
-                // Clear events, cache or something else
+                $repository = $this->application->get('book.repository');
+                $repository->uninstall();
             });
 
             $this->application->boot(function (Plugin $plugin) {
