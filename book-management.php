@@ -4,7 +4,7 @@
  * Plugin URI:      https://www.veronalabs.com
  * Plugin Prefix:   BM
  * Description:     Example WordPress Plugin Based on Rabbit Framework to manage books!
- * Author:          VeronaLabs
+ * Author:          Amir Pirmoradian
  * Author URI:      https://veronalabs.com
  * Text Domain:     book-managment
  * Domain Path:     /languages
@@ -26,10 +26,10 @@ if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
 }
 
 /**
- * Class ExamplePluginInit
- * @package ExamplePluginInit
+ * Class BookManagementPluginInit
+ * @package BookManagementPluginInit
  */
-class ExamplePluginInit extends Singleton
+class BookManagementPluginInit extends Singleton
 {
     /**
      * @var Container
@@ -37,7 +37,7 @@ class ExamplePluginInit extends Singleton
     private $application;
 
     /**
-     * ExamplePluginInit constructor.
+     * BookManagementPluginInit constructor.
      */
     public function __construct()
     {
@@ -112,13 +112,13 @@ class ExamplePluginInit extends Singleton
 }
 
 /**
- * Returns the main instance of ExamplePluginInit.
+ * Returns the main instance of BookManagementPluginInit.
  *
- * @return ExamplePluginInit
+ * @return BookManagementPluginInit
  */
 function examplePlugin()
 {
-    return ExamplePluginInit::get();
+    return BookManagementPluginInit::get();
 }
 
 examplePlugin();
