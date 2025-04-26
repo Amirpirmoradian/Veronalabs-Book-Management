@@ -11,6 +11,7 @@
  * Version:         1.0
  */
 
+use Piramir\BookManagement\ServiceProviders\AdminPageServiceProvider;
 use Piramir\BookManagement\ServiceProviders\MigrationServiceProvider;
 use Piramir\BookManagement\ServiceProviders\PostTypeServiceProvider;
 use Rabbit\Application;
@@ -63,6 +64,8 @@ class BookManagementPluginInit extends Singleton
             $this->application->addServiceProvider(MigrationServiceProvider::class);
 
             $this->application->addServiceProvider(PostTypeServiceProvider::class);
+
+            $this->application->addServiceProvider(AdminPageServiceProvider::class);
 
             /**
              * Activation hooks
