@@ -150,14 +150,14 @@ class BookPostTypeManager
 
         $isbn = sanitize_text_field($_POST['book_isbn']);
 
+        if($isbn == ''){
+            return;
+        }
+
         $existing = BookInfo::query()->where('post_id', $post_id)->exists();
 
         if ($existing) {
-            if($isbn == ''){
-                BookInfo::query()->where('post_id', $post_id)->delete();
-            }else{
-                BookInfo::query()->where('post_id', $post_id)->update(['isbn' => $isbn]);
-            }
+            BookInfo::query()->where('post_id', $post_id)->update(['isbn' => $isbn]);
         } else {
             BookInfo::query()->insert(['post_id' => $post_id, 'isbn' => $isbn]);
         }
