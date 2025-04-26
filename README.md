@@ -1,10 +1,3 @@
-Perfect —  
-I'll add a clean new section to your `README.md` about `release.sh` and explain it properly.
-
-Here’s the **updated complete README** for you:
-
----
-
 # 📄 `README.md`
 
 # 📚 Book Management Plugin
