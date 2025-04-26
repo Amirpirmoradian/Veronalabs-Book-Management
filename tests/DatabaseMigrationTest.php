@@ -39,7 +39,7 @@ class DatabaseMigrationTest extends WP_UnitTestCase
 
         $column_names = array_column($columns, 'Field');
 
-        $this->assertContains('id', $column_names, 'Column id should exist.');
+        $this->assertContains('ID', $column_names, 'Column ID should exist.');
         $this->assertContains('post_id', $column_names, 'Column post_id should exist.');
         $this->assertContains('isbn', $column_names, 'Column isbn should exist.');
     }
