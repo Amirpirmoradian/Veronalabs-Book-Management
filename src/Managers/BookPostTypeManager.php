@@ -153,7 +153,11 @@ class BookPostTypeManager
         $existing = BookInfo::query()->where('post_id', $post_id)->exists();
 
         if ($existing) {
-            BookInfo::query()->where('post_id', $post_id)->update(['isbn' => $isbn]);
+            if($isbn == ''){
+                BookInfo::query()->where('post_id', $post_id)->delete();
+            }else{
+                BookInfo::query()->where('post_id', $post_id)->update(['isbn' => $isbn]);
+            }
         } else {
             BookInfo::query()->insert(['post_id' => $post_id, 'isbn' => $isbn]);
         }
