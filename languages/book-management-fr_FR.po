@@ -1,0 +1,95 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Book Management Plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-26\n"
+"PO-Revision-Date: 2025-04-26\n"
+"Last-Translator: Amir Pirmoradian <piramir77@gmail.com>\n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Manual\n"
+"X-Domain: book-management\n"
+
+#: src/Managers/BookPostTypeManager.php
+msgid "Books"
+msgstr "Livres"
+
+#: src/Managers/BookPostTypeManager.php
+msgid "Book"
+msgstr "Livre"
+
+#: src/Managers/BookPostTypeManager.php
+msgid "Add New"
+msgstr "Ajouter Nouveau"
+
+#: src/Managers/BookPostTypeManager.php
+msgid "Add New Book"
+msgstr "Ajouter un Nouveau Livre"
+
+#: src/Managers/BookPostTypeManager.php
+msgid "New Book"
+msgstr "Nouveau Livre"
+
+#: src/Managers/BookPostTypeManager.php
+msgid "Edit Book"
+msgstr "Modifier le Livre"
+
+#: src/Managers/BookPostTypeManager.php
+msgid "View Book"
+msgstr "Voir le Livre"
+
+#: src/Managers/BookPostTypeManager.php
+msgid "All Books"
+msgstr "Tous les Livres"
+
+#: src/Managers/BookPostTypeManager.php
+msgid "Search Books"
+msgstr "Rechercher des Livres"
+
+#: src/Managers/BookPostTypeManager.php
+msgid "No books found."
+msgstr "Aucun livre trouvé."
+
+#: src/Managers/BookPostTypeManager.php
+msgid "No books found in Trash."
+msgstr "Aucun livre trouvé dans la corbeille."
+
+#: src/Managers/BookPostTypeManager.php
+msgid "Publishers"
+msgstr "Éditeurs"
+
+#: src/Managers/BookPostTypeManager.php
+msgid "Authors"
+msgstr "Auteurs"
+
+#: src/Managers/BookPostTypeManager.php
+#: src/Admin/BooksInfoTable.php
+msgid "ISBN"
+msgstr "ISBN"
+
+#: src/Managers/BookAdminPageManager.php
+msgid "Books Info"
+msgstr "Informations sur les Livres"
+
+#: src/Admin/BooksInfoTable.php
+msgid "Post ID"
+msgstr "Identifiant de l’Article"
+
+#: src/Admin/BooksInfoTable.php
+msgid "Books Info Table"
+msgstr "Tableau d'Informations sur les Livres"
+
+#: src/Admin/BooksInfoTable.php
+msgid "Edit"
+msgstr "Modifier"
+
+#: src/Admin/BooksInfoTable.php
+msgid "Delete"
+msgstr "Supprimer"
+
+#: src/Admin/BooksInfoTable.php
+msgid "Are you sure?"
+msgstr "Êtes-vous sûr ?"

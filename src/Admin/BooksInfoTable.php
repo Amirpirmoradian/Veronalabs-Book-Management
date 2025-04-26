@@ -33,8 +33,8 @@ class BooksInfoTable extends WP_List_Table
     public function get_columns(): array
     {
         return [
-            'post_id' => 'Post ID',
-            'isbn'    => 'ISBN',
+            'post_id' => __('Post ID', 'book-management'),
+            'isbn'    => __('ISBN', 'book-management'),
         ];
     }
 
@@ -46,28 +46,28 @@ class BooksInfoTable extends WP_List_Table
         ];
     }
 
-
     protected function column_post_id($item): string
     {
         $post_edit_link = get_edit_post_link($item['post_id']);
         $postTitle = get_the_title($item['post_id']);
+
         $actions = [
             'edit' => sprintf(
                 '<a href="%s">%s</a>',
                 esc_url($post_edit_link),
-                __('Edit', 'book-manager')
+                __('Edit', 'book-management')
             ),
             'delete' => sprintf(
                 '<a href="?page=books-info&action=delete&id=%d" onclick="return confirm(\'%s\')">%s</a>',
                 $item['ID'],
-                esc_js(__('Are you sure?', 'book-manager')),
-                __('Delete', 'book-manager')
+                esc_js(__('Are you sure?', 'book-management')),
+                __('Delete', 'book-management')
             ),
         ];
 
         return sprintf(
             '%1$s %2$s',
-            esc_html($item['post_id'] . "($postTitle)"),
+            esc_html($item['post_id'] . " ($postTitle)"),
             $this->row_actions($actions)
         );
     }
@@ -83,7 +83,6 @@ class BooksInfoTable extends WP_List_Table
         $hidden = [];
         $sortable = $this->get_sortable_columns();
         $this->_column_headers = [$columns, $hidden, $sortable];
-
 
         $per_page = 5;
         $current_page = $this->get_pagenum();
@@ -126,7 +125,6 @@ class BooksInfoTable extends WP_List_Table
         return $item[$column_name] ?? '';
     }
 
-
     /**
      * Render the full page.
      *
@@ -134,15 +132,13 @@ class BooksInfoTable extends WP_List_Table
      */
     public static function render(): void
     {
-
         $table = new self();
-
         $table->prepare_items();
 
         echo '<div class="wrap">';
-        echo '<h1>' . esc_html__('Books Info Table', 'book-manager') . '</h1>';
+        echo '<h1>' . esc_html__('Books Info Table', 'book-management') . '</h1>';
         echo '<form method="post">';
-        $table->search_box(__('Search Books', 'book-manager'), 'search_id');
+        $table->search_box(__('Search Books', 'book-management'), 'search_id');
         echo '<input type="hidden" name="page" value="books-info">';
         $table->display();
         echo '</form>';

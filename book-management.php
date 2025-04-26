@@ -6,7 +6,7 @@
  * Description:     Example WordPress Plugin Based on Rabbit Framework to manage books!
  * Author:          Amir Pirmoradian
  * Author URI:      https://veronalabs.com
- * Text Domain:     book-managment
+ * Text Domain:     book-management
  * Domain Path:     /languages
  * Version:         1.0
  */
@@ -85,11 +85,6 @@ class BookManagementPluginInit extends Singleton
 
             $this->application->boot(function (Plugin $plugin) {
                 $plugin->loadPluginTextDomain();
-
-                // load template
-                $this->application->template('plugin-template.php', ['foo' => 'bar']);
-
-                ///...
 
             });
 

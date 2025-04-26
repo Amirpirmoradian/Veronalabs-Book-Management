@@ -38,19 +38,19 @@ class BookPostTypeManager
     public function registerPostType(): void
     {
         $labels = [
-            'name'               => 'Books',
-            'singular_name'      => 'Book',
-            'menu_name'          => 'Books',
-            'name_admin_bar'     => 'Book',
-            'add_new'            => 'Add New',
-            'add_new_item'       => 'Add New Book',
-            'new_item'           => 'New Book',
-            'edit_item'          => 'Edit Book',
-            'view_item'          => 'View Book',
-            'all_items'          => 'All Books',
-            'search_items'       => 'Search Books',
-            'not_found'          => 'No books found.',
-            'not_found_in_trash' => 'No books found in Trash.',
+            'name'               => __('Books', 'book-management'),
+            'singular_name'      => __('Book', 'book-management'),
+            'menu_name'          => __('Books', 'book-management'),
+            'name_admin_bar'     => __('Book', 'book-management'),
+            'add_new'            => __('Add New', 'book-management'),
+            'add_new_item'       => __('Add New Book', 'book-management'),
+            'new_item'           => __('New Book', 'book-management'),
+            'edit_item'          => __('Edit Book', 'book-management'),
+            'view_item'          => __('View Book', 'book-management'),
+            'all_items'          => __('All Books', 'book-management'),
+            'search_items'       => __('Search Books', 'book-management'),
+            'not_found'          => __('No books found.', 'book-management'),
+            'not_found_in_trash' => __('No books found in Trash.', 'book-management'),
         ];
 
         $args = [
@@ -73,14 +73,14 @@ class BookPostTypeManager
     public function registerTaxonomies(): void
     {
         register_taxonomy('publisher', ['book'], [
-            'label'        => 'Publishers',
+            'label'        => __('Publishers', 'book-management'),
             'rewrite'      => ['slug' => 'publisher'],
             'hierarchical' => true,
             'show_in_rest' => true,
         ]);
 
         register_taxonomy('author', ['book'], [
-            'label'        => 'Authors',
+            'label'        => __('Authors', 'book-management'),
             'rewrite'      => ['slug' => 'author'],
             'hierarchical' => false,
             'show_in_rest' => true,
@@ -96,7 +96,7 @@ class BookPostTypeManager
     {
         add_meta_box(
             'isbn_meta_box',
-            'ISBN',
+            __('ISBN', 'book-management'),
             [$this, 'renderIsbnMetaBox'],
             'book',
             'side',
@@ -115,7 +115,7 @@ class BookPostTypeManager
         $isbn = BookInfo::query()->where('post_id', $post->ID)->value('isbn');
         wp_nonce_field('save_book_isbn', 'book_isbn_nonce');
 
-        echo '<label for="book_isbn">ISBN:</label>';
+        echo '<label for="book_isbn">' . esc_html__('ISBN:', 'book-management') . '</label>';
         echo '<input type="text" id="book_isbn" name="book_isbn" value="' . esc_attr($isbn) . '" style="width:100%;" />';
     }
 
@@ -150,7 +150,7 @@ class BookPostTypeManager
 
         $isbn = sanitize_text_field($_POST['book_isbn']);
 
-        if($isbn == ''){
+        if ($isbn == '') {
             return;
         }
 
@@ -177,7 +177,7 @@ class BookPostTypeManager
             $new_columns[$key] = $value;
 
             if ($key === 'title') {
-                $new_columns['isbn'] = 'ISBN';
+                $new_columns['isbn'] = __('ISBN', 'book-management');
             }
         }
 

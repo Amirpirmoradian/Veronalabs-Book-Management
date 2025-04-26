@@ -23,8 +23,8 @@ class BookAdminPageManager
     public function registerMenu(): void
     {
         add_menu_page(
-            'Books Info',
-            'Books Info',
+            __('Books Info', 'book-management'),
+            __('Books Info', 'book-management'),
             'manage_options',
             'books-info',
             [$this, 'renderPage'],
@@ -53,11 +53,9 @@ class BookAdminPageManager
         }
 
         echo '<div class="wrap">';
-        echo '<h1 class="wp-heading-inline">Books Info</h1>';
-
-        $this->table->prepare_items();
-
+        echo '<h1 class="wp-heading-inline">' . esc_html__('Books Info', 'book-management') . '</h1>';
         echo '<form method="post">';
+        $this->table->prepare_items();
         $this->table->display();
         echo '</form>';
         echo '</div>';
