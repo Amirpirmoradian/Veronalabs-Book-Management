@@ -14,10 +14,16 @@
     },
     "autoload": {
         "psr-4": {
-            "ExamplePlugin\\": "src"
-        }
+            "Piramir\\BookManagement\\": "src"
+        },
+        "files": [
+            "src/Boot/helper.php"
+        ]
     },
     "require": {
         "veronalabs/rabbit": "^1.4"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.4"
     }
 }
