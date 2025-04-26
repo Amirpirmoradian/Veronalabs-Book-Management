@@ -1,51 +1,142 @@
-# Example Plugin
+Perfect —  
+I'll add a clean new section to your `README.md` about `release.sh` and explain it properly.
 
-[![Total Downloads](https://img.shields.io/packagist/dt/veronalabs/plugin.svg)](https://packagist.org/packages/veronalabs/plugin)
-[![Latest Stable Version](https://img.shields.io/packagist/v/veronalabs/plugin.svg)](https://packagist.org/packages/veronalabs/plugin)
+Here’s the **updated complete README** for you:
 
+---
 
-## About
-Example WordPress Plugin Based on [Rabbit Framework](https://github.com/veronalabs/rabbit)
+# 📄 `README.md`
 
-## Requirements
+# 📚 Book Management Plugin
 
-1. PHP 7.4 or higher.
-2. Composer
+A WordPress plugin to manage Books using a custom post type and a custom database table.  
+Built with [Rabbit Framework](https://github.com/veronalabs/rabbit) and organized using service providers, repositories, and managers.
 
-## Usage
+---
+
+## ✨ Features
+
+- Registers a **Custom Post Type** called "Book".
+- Adds **two custom taxonomies**: "Publishers" and "Authors".
+- Creates a **custom database table** `books_info` to store ISBNs.
+- Adds a **meta box** for ISBN input when editing a Book.
+- Displays ISBNs in a **custom admin page** and inside the Book post type list.
+- Fully **multilingual ready** (`book-management` text domain).
+- Structured for **unit testing** with PHPUnit.
+
+---
+
+## 🚀 Installation
+
+1. Download and upload the plugin to your WordPress `wp-content/plugins/` directory.
+2. Activate the plugin from the WordPress admin panel.
+3. The plugin will automatically create the necessary custom post type, taxonomies, and database table.
+
+---
+
+## 🧪 Running Tests
+
+This plugin uses **PHPUnit** for automated unit testing.
+
+Follow these steps to setup the WordPress test environment and run the tests:
+
+---
+
+### 1. Install the WordPress test suite
+
+Use the included script:
 
 ```bash
-composer require veronalabs/plugin
+./bin/install-wp-tests.sh verona-test root '' 127.0.0.1
 ```
 
-## Development
+Where:
+- `verona-test` is the database name you want to use for tests.
+- `root` is your MySQL username.
+- `''` (empty) is your MySQL password.
+- `127.0.0.1` is your MySQL host.
 
-If you are planning to add style to your plugin, make sure you have the following requirements:
+
+This script will:
+- Download WordPress Core for testing
+- Setup the test libraries
+- Configure the environment
+
+---
+
+### 2. Install PHP dependencies
+
+If you haven't already:
+
 ```bash
-node.js: <= v14.16.0
-npm: <= 6.14.11
+composer install
 ```
 
-And run these commands:
+(Assuming Rabbit Framework and PHPUnit are already included in `composer.json`.)
 
-**Install packages**
+---
+
+### 3. Run the tests
+
+After setting up the test environment:
+
 ```bash
-npm install
+vendor/bin/phpunit
 ```
 
-**Run the start command**
+✅ You should see a success report showing all tests passed.
+
+---
+
+## 🛠️ Notes
+
+- All tests are inside the `/tests/` directory.
+- Tests are grouped by functionality:
+    - `BookPostTypeTest`
+    - `DatabaseMigrationTest`
+    - `AdminPageTest`
+    - `IsbnSavingTest`
+- Tests automatically activate and deactivate the plugin before checking database migrations.
+
+---
+
+## 📦 Creating a Release Zip
+
+There is a `release.sh` script included to help you create a clean ZIP file for plugin distribution.
+
+It will:
+- Create a zip without development files (like `vendor/`, `tests/`, `.git/`, `.github/`, etc.).
+- Package only the necessary plugin files for production.
+
+### Usage:
+
 ```bash
-npm start
-// or
-npm run start
+./release.sh
 ```
 
-### Commands
+After running, you will find a clean `.zip` file (example: `book-management.zip`) inside the project root.
 
-```
-"compile:scss" : Compiles scss files
-"postcss:autoprefixer": Parses your CSS and adds vendor prefixes
-"dev": Runs "compile:scss" and "postcss:autoprefixer" in a sequence
-"watch": Watches for changes in the /assets/src/scss/ folder and run "dev" command on every change
-"start": Runs "dev" and "watch" commands concurrently
-```
+✅ Ready to upload to WordPress!
+
+---
+
+## 🧩 Requirements
+
+- PHP 8.1 or higher
+- WordPress 5.5 or higher
+- Composer
+- PHPUnit 9.x (recommended)
+
+---
+
+## 🧑‍💻 Author
+
+**Amir Pirmoradian**  
+📧 piramir77@gmail.com
+
+---
+
+## 📄 License
+
+GPL-3.0-or-later  
+Please see `LICENSE` file for more information.
