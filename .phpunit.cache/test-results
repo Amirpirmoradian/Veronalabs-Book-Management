@@ -1,0 +1,1 @@
+{"version":1,"defects":{"SampleTest::test_sample":8,"BookPostTypeTest::test_book_post_type_registered":8,"BookPostTypeTest::test_publisher_taxonomy_registered":8,"BookPostTypeTest::test_author_taxonomy_registered":8,"DatabaseMigrationTest::test_books_info_table_exists":8,"DatabaseMigrationTest::test_books_info_table_columns_exist":8},"times":[]}

@@ -24,6 +24,7 @@
         "veronalabs/rabbit": "^1.4"
     },
     "require-dev": {
-        "symfony/var-dumper": "^6.4"
+        "symfony/var-dumper": "^6.4",
+        "yoast/phpunit-polyfills": "^4.0"
     }
 }
